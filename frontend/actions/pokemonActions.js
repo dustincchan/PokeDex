@@ -1,7 +1,7 @@
-var Dispatcher = require('../dispatcher/disptacher');
+var Dispatcher = require('../dispatcher/dispatcher');
 var PokemonConstants = require('../constants/pokemonConstants.js');
 
-var pokemonActions = {
+var ApiActions = {
   receiveAllPokemons: function(data) {
 
       Dispatcher.dispatch({actionType: PokemonConstants.POKEMONS_RECEIVED,
@@ -9,4 +9,4 @@ var pokemonActions = {
   }
 }
 
-module.exports = pokemonActions;
+module.exports = ApiActions;

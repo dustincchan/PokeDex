@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var apiUtil = require('./util/apiUtil');
+apiUtil = require('./util/apiUtil');
+PokemonStore = require('./stores/pokemon');
 
 document.addEventListener('DOMContentLoaded', function () {
   var content = document.querySelector('#root');
