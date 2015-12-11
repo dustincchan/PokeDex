@@ -14,7 +14,26 @@ var resetPokemons = function(pokeProps) {
   Pokemons.__emitChange();
 };
 
+var resetSinglePokemon = function(newPokemon) {
+  var noPokemon = true;
+  var index = -1;
+  _pokemons.forEach(function(pokemon, idx) {
+    if( pokemon.id === newPokemon.id ) {
+      index = idx;
+      return;
+    }
+  });
+
+  if ( index !== -1 ) {
+    _pokemons[index] = newPokemon
+  } else {
+    _pokemons.push(newPokemon);
+  }
+  Pokemons.__emitChange();
+};
+
 Pokemons.find = function(pokemonId) {
+  // debugger;
   var soughtForPokemon = {};
   _pokemons.forEach( function( pokemon ) {
     if(pokemon.id === pokemonId ) {
@@ -22,7 +41,7 @@ Pokemons.find = function(pokemonId) {
       return;
     }
   });
-  return {pokemon: soughtForPokemon};
+  return soughtForPokemon;
 };
 
 Pokemons.__onDispatch = function (payload) {
@@ -30,8 +49,8 @@ Pokemons.__onDispatch = function (payload) {
     case "POKEMONS_RECEIVED":
       resetPokemons(payload.pokemons);
       break;
-    case "FIND_POKEMON":
-      find(payload.pokemonId);
+    case "SINGLE_POKEMON_RECEIVED":
+      resetSinglePokemon(payload.pokemon);
       break;
   }
 };

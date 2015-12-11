@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var apiUtil = require('./util/apiUtil');
+apiUtil = require('./util/apiUtil');
 var PokemonStore = require('./stores/pokemon');
 var PokemonsIndex = require('./components/pokemons/pokemonsIndex');
 var Router = require('react-router').Router;
