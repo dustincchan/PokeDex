@@ -9,6 +9,15 @@ var apiUtil = {
         ApiActions.receiveAllPokemons(data);
       }
     })
+  },
+  receiveSinglePokemon: function(id) {
+    $.ajax({
+      url: "api/pokemon/" + id,
+      dataType: "json",
+      success: function(data) {
+        ApiActions.receiveAllPokemons(data);
+      }
+    })
   }
 }
 

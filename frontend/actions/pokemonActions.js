@@ -7,6 +7,7 @@ var ApiActions = {
       Dispatcher.dispatch({actionType: PokemonConstants.POKEMONS_RECEIVED,
       pokemons: data});
   }
-}
+
+};
 
 module.exports = ApiActions;
